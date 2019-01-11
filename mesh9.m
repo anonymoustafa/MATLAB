@@ -1,0 +1,14 @@
+x = [-1 : 1/16 : 1];
+ y = [-1 : 1/16 : 1];
+ [x2,y2] = meshgrid(x,y);
+ z = sin(pi*x2) .* sin(pi*y2);
+ subplot(1,2,1);
+ [c,h] = contour(x, y, z, [-1 : 0.125 : 1]);
+ clabel(c, h, [-1 : .25 : 1]);
+ set(gca, 'DataAspectRatio', [1 1 1]);
+ title('sin(\pi x) sin(\pi y)');
+ subplot(1,2,2);
+ surfc(x, y, z);
+ view(125,30);
+ xlabel('x');  ylabel('y');  zlabel('z');
+ set(gca, 'DataAspectRatio', [1 1 1]);
